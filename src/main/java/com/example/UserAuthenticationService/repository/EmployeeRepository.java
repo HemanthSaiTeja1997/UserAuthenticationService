@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends MongoRepository<Employee,Integer> {
     Employee findByEmailAndPassword(String email, String password);
-    @Query("{'department.dname':{$in:[?0]}}")
-    List<Employee> findAllEmployeeFromDname(String department);
+
+
 }

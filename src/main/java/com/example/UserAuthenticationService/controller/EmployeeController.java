@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 public class EmployeeController {
 private IEmployeeService iEmployeeService;
 private SecurityTokenGenerator securityTokenGenerator;
@@ -43,7 +44,7 @@ private SecurityTokenGenerator securityTokenGenerator;
     }
     }
 
-    @GetMapping("/api/v1/fetchall")
+    @GetMapping("fetchall")
     public ResponseEntity<?> fetchAll(){
     return new ResponseEntity<>(iEmployeeService.getEmployees(),HttpStatus.OK);
     }
@@ -63,8 +64,5 @@ private SecurityTokenGenerator securityTokenGenerator;
         }
 
     }
-    @GetMapping("/api/v1/fetchbydept/{dname}")
-    public ResponseEntity<?> fetchByDept(@PathVariable String dname){
-        return new ResponseEntity<>(iEmployeeService.getEmployeeByDname(dname),HttpStatus.OK);
-    }
+
 }

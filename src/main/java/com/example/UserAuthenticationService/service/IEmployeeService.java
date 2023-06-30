@@ -10,6 +10,6 @@ public interface IEmployeeService {
     Employee saveEmploy(Employee e) throws EmployeeExistAlready;
     List<Employee> getEmployees();
     Employee getEmployeeByEmailAndPassword(String email, String password) throws EmployeeNotFound;
-    List<Employee> getEmployeeByDname(String department);
+
 
 }

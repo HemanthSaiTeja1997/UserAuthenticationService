@@ -19,19 +19,18 @@ public class Employee {
     private String password;
 
     private String ename;
-    private Department department;
-    private List<Project> projects;
+    private String department;
+
 
     public Employee() {
     }
 
-    public Employee(String email, String password, int ecode, String ename, Department department, List<Project> projects) {
+    public Employee(int ecode, String email, String password, String ename, String department) {
+        this.ecode = ecode;
         this.email = email;
         this.password = password;
-        this.ecode = ecode;
         this.ename = ename;
         this.department = department;
-        this.projects = projects;
     }
 
     public String getEmail() {
@@ -66,20 +65,12 @@ public class Employee {
         this.ename = ename;
     }
 
-    public Department getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
     }
 
     @Override
@@ -87,23 +78,22 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return ecode == employee.ecode && Objects.equals(email, employee.email) && Objects.equals(password, employee.password) && Objects.equals(ename, employee.ename) && Objects.equals(department, employee.department) && Objects.equals(projects, employee.projects);
+        return ecode == employee.ecode && Objects.equals(email, employee.email) && Objects.equals(password, employee.password) && Objects.equals(ename, employee.ename) && Objects.equals(department, employee.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, password, ecode, ename, department, projects);
+        return Objects.hash(ecode, email, password, ename, department);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "email='" + email + '\'' +
+                "ecode=" + ecode +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", ecode=" + ecode +
                 ", ename='" + ename + '\'' +
-                ", department=" + department +
-                ", projects=" + projects +
+                ", department='" + department + '\'' +
                 '}';
     }
 }

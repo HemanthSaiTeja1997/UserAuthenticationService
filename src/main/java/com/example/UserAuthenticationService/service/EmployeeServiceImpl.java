@@ -45,8 +45,5 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 
 
-    @Override
-    public List<Employee> getEmployeeByDname(String department) {
-        return employeeRepository.findAllEmployeeFromDname(department);
-    }
+
 }
